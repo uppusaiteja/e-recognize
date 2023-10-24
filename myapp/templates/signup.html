@@ -1,20 +1,38 @@
-<h1>Signup</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Signup</button>
-    <a href="{% url 'login' %}">Already have account?</a>
-</form>
-<style>
-     button {
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
 
-            width: max-content;
+        .signup-container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        button {
             background-color: #007bff;
             color: #fff;
             border: none;
             padding: 10px;
-            margin-right: 20px;
-            margin-top: 10px;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -23,4 +41,17 @@
             text-decoration: none;
             color: #007bff;
         }
-</style>
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Signup</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Signup</button>
+            <a href="{% url 'login' %}">Already have an account?</a>
+        </form>
+    </div>
+</body>
+</html>
