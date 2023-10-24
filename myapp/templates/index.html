@@ -1,6 +1,4 @@
 {% if request.user.is_authenticated %}
-  <p> e-Recognize Dashboard</p>
-  <p>Welcome {{ request.user.username }}</p>
  
 <html lang="en">
 <head>
@@ -19,7 +17,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="justify-content: flex-end;">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="justify-content: flex-end;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,6 +35,11 @@
         </li>
     </div>
   </nav>
+
+  <div style="margin-top: 50px;">
+    <h3> e-Recognize Dashboard</h3>
+  <p>Welcome {{ request.user.username }}</p>
+  </div>
 
 <!-- Dashboard Content Section -->
 <section class="container mt-5">
