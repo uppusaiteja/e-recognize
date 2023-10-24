@@ -153,8 +153,29 @@
                         
                         <!-- Feedback Submit Button -->
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block">Submit Feedback</button>
+                            <button type="submit" class="btn btn-success btn-block" id="feedbackBtn" disabled>Submit Feedback</button>
                         </div>
+                        
+                        <script>
+                            const accuracyInput = document.getElementById('accuracy');
+                            const userExperienceTextarea = document.getElementById('userExperience');
+                            const feedbackButton = document.getElementById('feedbackBtn');
+                        
+                            // Function to check input fields and update the button's disabled attribute
+                            function updateFeedbackButtonState() {
+                                if (accuracyInput.checkValidity() && userExperienceTextarea.checkValidity()) {
+                                    feedbackButton.disabled = false; // Enable the button
+                                } else {
+                                    feedbackButton.disabled = true; // Disable the button
+                                }
+                            }
+                        
+                            // Initial state check and add event listeners for input changes
+                            updateFeedbackButtonState();
+                            accuracyInput.addEventListener('input', updateFeedbackButtonState);
+                            userExperienceTextarea.addEventListener('input', updateFeedbackButtonState);
+                        </script>
+                        
                     </form>
                 </div>
             </div>

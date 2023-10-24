@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout 
 from .forms import UserCreationForm, LoginForm
 
+showResults = False
 
 # Create your views here.
 # Home page
@@ -38,4 +39,8 @@ def user_login(request):
 # logout page
 def user_logout(request):
     logout(request)
+    return redirect('home')
+
+def upload():
+    showResults = True
     return redirect('home')
