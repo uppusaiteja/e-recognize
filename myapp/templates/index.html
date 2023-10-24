@@ -97,8 +97,27 @@
                         
                         <!-- Submit Button -->
                         <div class="form-group mt-3">
-                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Submit</button>
                         </div>
+                        
+                        <script>
+                            const consentCheckbox = document.getElementById('consent');
+                            const submitButton = document.getElementById('submitBtn');
+                        
+                            // Function to check the checkbox state and update the button's disabled attribute
+                            function updateSubmitButtonState() {
+                                if (consentCheckbox.checked) {
+                                    submitButton.disabled = false; // Enable the button
+                                } else {
+                                    submitButton.disabled = true; // Disable the button
+                                }
+                            }
+                        
+                            // Initial state check and add event listener for changes
+                            updateSubmitButtonState();
+                            consentCheckbox.addEventListener('change', updateSubmitButtonState);
+                        </script>
+                        
                     </form>
                 </div>
             </div>
