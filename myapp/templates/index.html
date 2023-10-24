@@ -1,0 +1,189 @@
+{% if request.user.is_authenticated %}
+  <p> e-Recognize Dashboard</p>
+  <p>Welcome {{ request.user.username }}</p>
+ 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS -->
+    <style>
+        /* Custom CSS goes here */
+        body {
+            background-color: #f8f9fa;
+        }
+        /* Adjust styling as needed */
+    </style>
+</head>
+<body>
+
+<!-- Navbar (if needed) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dashboard Content Section -->
+<section class="container mt-5">
+    <div class="row">
+        <!-- Upload Image Section -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Upload Image</h4>
+                </div>
+                <div class="card-body">
+                    <form action="#" method="POST" enctype="multipart/form-data">
+                        <!-- Upload Image Field -->
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="image">Choose an Image</label>
+                            <input type="file" id="image" name="image" class="form-control-file" required>
+                        </div>
+                        
+                        <!-- Consent Checkbox -->
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="consent" name="consent" required>
+                            <label class="form-check-label" for="consent">I agree to the terms and conditions.</label>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results and Feedback Section -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">Results</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Display disability type and medical advice here -->
+                    <p><strong>Disability Type:</strong> [Type]</p>
+                    <p><strong>Medical Advice:</strong> [Advice]</p>
+
+                    <!-- Feedback Form -->
+                    <hr>
+                    <h5>Feedback</h5>
+                    <form action="#" method="POST">
+                        <!-- Accuracy Feedback -->
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="accuracy">Accuracy (1-5):</label>
+                            <input type="number" id="accuracy" name="accuracy" class="form-control" min="1" max="5" required>
+                        </div>
+                        
+                        <!-- User Experience Feedback -->
+                        <div class="form-group">
+                            <label for="userExperience">User Experience:</label>
+                            <textarea id="userExperience" name="userExperience" class="form-control" rows="3" required></textarea>
+                        </div>
+                        
+                        <!-- Feedback Submit Button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block">Submit Feedback</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JavaScript (Popper.js and jQuery) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+{% else %}
+
+
+<html lang="en">
+<head>
+    
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS -->
+    <style>
+        /* Custom CSS goes here */
+        body {
+            background-color: #f8f9fa;
+        }
+        /* Adjust styling as needed */
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><h2>e-Recognize</h2></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Resources</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Empowering Abilities: Recognizing Disabilities</h1>
+        <p class="lead">We're dedicated to helping individuals with disabilities thrive.</p>
+        <a href="{% url 'login' %}" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</section>
+
+
+<!-- Bootstrap JavaScript (Popper.js and jQuery) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+  <!-- <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'signup' %}">Signup</a> -->
+{% endif %}
