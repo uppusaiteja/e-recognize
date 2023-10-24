@@ -73,6 +73,10 @@
                     
                                 if (file) {
                                     const reader = new FileReader();
+                                    if (file.type.indexOf("image") === -1) {
+                                        alert("Unsupported File Format");
+                                        document.getElementById('image').value = ''
+                                    }
                     
                                     reader.onload = function(e) {
                                         imagePreview.src = e.target.result;
