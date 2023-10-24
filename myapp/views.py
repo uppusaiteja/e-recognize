@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout 
 from .forms import UserCreationForm, LoginForm
+from django.contrib import messages
 
 showResults = False
 
@@ -39,6 +40,7 @@ def user_login(request):
 # logout page
 def user_logout(request):
     logout(request)
+    messages.success(request, 'You have been successfully logged out.')
     return redirect('home')
 
 def upload():
