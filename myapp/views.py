@@ -17,6 +17,7 @@ def user_signup(request):
             return redirect('login')
     else:
         form = UserCreationForm()
+    print(form)
     return render(request, 'signup.html', {'form': form})
 
 # login page
