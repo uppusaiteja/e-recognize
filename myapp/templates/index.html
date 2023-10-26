@@ -31,7 +31,7 @@
             <a class="nav-link" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" onclick="logoutAlert()" href="{% url 'logout' %}">Logout</a>
@@ -152,14 +152,14 @@
                         <!-- Accuracy Feedback -->
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="accuracy">Accuracy (1-5):</label>
+                            <label for="accuracy"> <b>Accuracy (1-5):</b> </label>
                             <input type="number" id="accuracy" name="accuracy" class="form-control" min="1" max="5" required>
                         </div>
                         
                         <!-- User Experience Feedback -->
                         <div class="form-group">
-                            <label for="userExperience">User Experience:</label>
-                            <textarea id="userExperience" name="userExperience" class="form-control" rows="3" required></textarea>
+                            <label for="userExperience"> <b>User Experience:</b> </label>
+                            <textarea maxlength="300" id="userExperience" name="userExperience" class="form-control" rows="3" required></textarea>
                         </div>
                         
                         <!-- Feedback Submit Button -->

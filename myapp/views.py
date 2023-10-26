@@ -25,7 +25,6 @@ class user:
 
         # login page
     def authenticate(request):
-        messages.success(request, 'You have been successfully logged in.')   
         if request.method == 'POST':
             form = LoginForm(request.POST)
             if form.is_valid():
@@ -36,7 +35,7 @@ class user:
                     login(request, user) 
                     return redirect('home')
         else:
-            form = LoginForm()
+            form = LoginForm() 
         return render(request, 'login.html', {'form': form})
 
 # logout page
@@ -44,6 +43,9 @@ def user_logout(request):
     logout(request)
     messages.success(request, 'You have been successfully logged out.')
     return redirect('home')
+
+def profile(request):
+    return render(request, 'profile.html')
 
 def upload():
     showResults = True
